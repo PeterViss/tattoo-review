@@ -9,7 +9,8 @@ class ArtistsController < ApplicationController
 
     @artist = find_artist
 
-  
+    @review = Review.new
+
   end
 
 
@@ -42,4 +43,9 @@ class ArtistsController < ApplicationController
   def artist_params
     params.require(:artist).permit(:name, :years_exp)
   end
+
+  def review_params
+    params.require(:review).permit(:stars, :artist_id, :client_id, :desc)
+  end
+
 end

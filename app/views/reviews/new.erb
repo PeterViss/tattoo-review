@@ -11,8 +11,10 @@
             <%= f.select :stars, (1..5) %>
             <%= f.label :desc, "Write your Review:" %>
             <%= f.text_field :desc %>
-            <%= f.select :artist, Artist.all.collect {|a| a.name} %>
-            <%= f.select :client, Client.all.collect {|c| c.username} %>
+
+            <%= f.collection_select(:artist_id, Artist.all, :id, :name, {:prompt => 'Choose an Artist'}) %>
+            <%= f.collection_select(:client_id, Client.all, :id, :username, {:prompt => 'Choose a Client'}) %>
+
             <%= f.submit "Submit Review" %>
         <% end %>
         

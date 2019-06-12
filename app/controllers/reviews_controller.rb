@@ -16,16 +16,8 @@ class ReviewsController < ApplicationController
 
   #creating the review
   def create
-    @artist_name = params['review']['artist']
-    @artist = Artist.find_by(name: @artist_name)
-    @artist_id = @artist.id
+    @review = Review.create(review_params)
 
-    @client_name = params['review']['client']
-    @client = Client.find_by(username: @client_name)
-    @client_id = @client.id
-
-    @review = Review.create(stars:params['review']['stars'],client_id:@client_id,artist_id:@artist_id,desc:params['review']['desc'])
-    
     redirect_to reviews_path
   end
 
@@ -56,7 +48,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:stars, :desc)
+    params.require(:review).permit(:stars, :client_id, :artist_id, :desc)
   end
 
 

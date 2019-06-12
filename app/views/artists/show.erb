@@ -35,8 +35,27 @@
         <h3><%= "No Reviews." %></h3>
         <%end%>
 
+
         <!-- link to creating a review for this artist -->
         <h5><%= link_to "Create a Review for This Artist", new_review_path%></h5>
+
+        <!-- create a new review -->
+        <%= form_for @review do |f| %>
+            <%= f.label :stars, "How many stars?" %>
+            <%= f.select :stars, (1..5) %>
+            <%= f.label :desc, "Write your Review:" %>
+            <%= f.text_field :desc %>
+
+            <%= f.hidden_field(:artist_id, :value => @artist.id) %>
+
+            <!-- <%= f.collection_select(:artist_id, Artist.all, :id, :name, {:prompt => 'Choose an Artist'}) %> -->
+            <%= f.collection_select(:client_id, Client.all, :id, :username, {:prompt => 'Choose a Client'}) %>
+
+            <%= f.submit "Submit Review" %>
+        <% end %>
+
+
+
     </body>
 
 </html>
