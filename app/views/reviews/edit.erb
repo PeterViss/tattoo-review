@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>New Review</title>
+        <h1>Edit this Review</h1>
+    </head>
+
+    <body>
+        <%= form_for @review do |f| %>
+            <%= f.label :stars, "How many stars?" %>
+            <%= f.select :stars, (1..5) %>
+            <%= f.label :desc, "Write Review:" %>
+            <%= f.text_field :desc %>
+            <%= f.submit "Update Review" %>
+        <% end %>
+        
+    </body>
+</html>

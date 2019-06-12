@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>All Artists</title>
+        <h1>All Artists</h1>
+    </head>
+
+    <body>
+    <ul>
+        <!-- list of artist names with general info -->
+        <% @artists.each do |artist| %>
+            <h2><li><%= link_to artist.name, artist_path(artist) %></li></h2>
+        <% end %>
+    </ul>
+    </body>
+</html>

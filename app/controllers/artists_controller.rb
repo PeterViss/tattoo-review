@@ -4,7 +4,12 @@ class ArtistsController < ApplicationController
   end
 
   def show
+    @sum = 0
+    @stars = 0
+
     @artist = find_artist
+
+  
   end
 
 

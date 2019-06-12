@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>All Reviews</title>
+        <h1>All Reviews</h1>
+    </head>
+
+    <body>
+        <% @reviews.each do |review| %>
+            <h2><%= review.stars %> Star(s)</h2>
+            <h2>Review: <%= review.desc %></h2>
+        <% end %>
+    </body>
+
+</html>

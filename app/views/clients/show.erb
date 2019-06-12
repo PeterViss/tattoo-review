@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <!-- header and general info -->
+        <title>Client Show Page</title>
+        <h1> <%= @client.username %> </h1>
+    </head>
+
+    <body>
+
+        <!-- displaying number of artists who have tattooed this client -->
+        <% if @client.artists.length != 0 %>
+            <h2>Number of Artists: <%= @client.artists.length %> </h2>
+        <% else %>
+            <h2> This Client has no Artists. </h2>
+        <% end %>
+
+    </body>
+</html>

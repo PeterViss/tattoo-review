@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>New Review</title>
+        <h1>Write a New Review</h1>
+    </head>
+
+    <body>
+        <%= form_for @review do |f| %>
+            <%= f.label :stars, "How many stars?" %>
+            <%= f.select :stars, (1..5) %>
+            <%= f.label :desc, "Write your Review:" %>
+            <%= f.text_field :desc %>
+            <%= f.select :artist, Artist.all.collect {|a| a.name} %>
+            <%= f.select :client, Client.all.collect {|c| c.username} %>
+            <%= f.submit "Submit Review" %>
+        <% end %>
+        
+    </body>
+</html>
